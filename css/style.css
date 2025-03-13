@@ -1,0 +1,162 @@
+/* Alapbeállítások */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: sans-serif;
+    overflow-x: hidden; /* Ha a banner kilóg, ne legyen vízszintes scrollbar */
+  }
+  
+  /* HEADER háttérkép – 600px magas, torzulás nélkül, alulra igazítva, középre */
+  .bg-banner {
+    height: 600px;
+    background: url("../img/banner_fruits.png") no-repeat center bottom;
+    background-size: cover;
+  }
+  
+  /* Kör alakú cím (300×300, 25% áttetsző türkiz, 10px dupla fehér keret, 50% lekerekítés) */
+  .title-circle {
+    width: 300px;
+    height: 300px;
+    background-color: rgba(2, 138, 158, 0.25);
+    border: 10px double #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    bottom: 50px; /* tetszőleges, hogy a banner aljától 50px-re legyen */
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px #000; /* kis doboz-árnyék */
+    text-align: center;
+  }
+  .title-circle h1 {
+    font-size: 2.5em; /* 2.5-szeres betűméret */
+    font-weight: bold;
+    font-variant: small-caps;
+    color: #fff;
+    text-shadow: 2px 2px 4px #000; /* fekete szövegárnyék */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* NAV-LINK dupla fehér szegély hoverre, de ne ugráljon */
+  .navbar-nav .nav-link {
+    border-top: 3px double transparent;
+    border-bottom: 3px double transparent;
+  }
+  .navbar-nav .nav-link:hover {
+    border-top-color: #fff;
+    border-bottom-color: #fff;
+  }
+  
+  /* Kiwi kép 770px alatt rejtve */
+  @media (max-width: 769px) {
+    .kiwi {
+      display: none !important;
+    }
+  }
+  
+  /* Lenyíló (Fogalmak) szakasz – 1px türkiz, dashed */
+  .border-dashed {
+    border-style: dashed !important;
+  }
+  .border-turquoise {
+    border-color: rgb(2, 138, 158) !important;
+  }
+  .bg-turquoise {
+    background-color: rgb(2, 138, 158) !important;
+  }
+  
+  /* TÁBLÁZAT: a thead legyen sötét/fekete, fehér szöveggel,
+     a törzsben páratlan sorok világos szürke csíkozást kapjanak. */
+  .table-container {
+    /* Közepes képernyőtől 75%, alatta 100% */
+    width: 100%;
+  }
+  @media (min-width: 768px) {
+    .table-container {
+      width: 75%;
+    }
+  }
+  table thead {
+    background-color: #000;
+    color: #fff;
+  }
+  table tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Kalkulátor form  - hogy ne legyen túl széles nagy kijelzőn */
+  .form-container {
+    max-width: 600px; /* tetszőleges */
+  }
+  .calculator-form .form-label {
+    font-weight: 600;
+  }
+  
+  /* Hibaüzenet: d-none / d-block JS-ből szabályozva (Bootstrap alap) */
+  
+  /* Eredmény dobozok – 3+3 px dupla keret, 10px lekerekítés, fehér szín */
+  .results-row {
+    margin-top: 1rem;
+  }
+  .result-box {
+    position: relative;
+    width: 120px;
+    height: 80px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Az első (színes) keret */
+    border: 3px solid #000; /* Alap, majd felülírjuk konkrét színnel */
+  }
+  .result-box::before {
+    /* A második (fehér) keret – belül */
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    right: -3px;
+    bottom: -3px;
+    border: 3px double #fff;
+    border-radius: inherit;
+    pointer-events: none;
+  }
+  
+  /* A feladat szerinti háttérszínek és keretszínek:
+     - Zsír: zöld (rgb(73 126 23))
+     - Rost: türkiz (rgb(2 138 158))
+     - Kalória: kék (rgb(31 83 143))
+     - Fehérje: lila (pl. rgb(101 31 143))
+     - Szénhidrát: piros (rgb(151 23 23))
+  */
+  .result-fat {
+    background-color: rgb(73, 126, 23);
+    border-color: rgb(73, 126, 23);
+  }
+  .result-fiber {
+    background-color: rgb(2, 138, 158);
+    border-color: rgb(2, 138, 158);
+  }
+  .result-calory {
+    background-color: rgb(31, 83, 143);
+    border-color: rgb(31, 83, 143);
+  }
+  .result-protein {
+    background-color: rgb(101, 31, 143);
+    border-color: rgb(101, 31, 143);
+  }
+  .result-carb {
+    background-color: rgb(151, 23, 23);
+    border-color: rgb(151, 23, 23);
+  }
+  
